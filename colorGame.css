@@ -8,6 +8,7 @@ body{
 	padding-bottom: 30%;
 	margin: 1.66%;
 	float: left;
+	border-radius: 10%;
 }
 
 #container{
@@ -19,3 +20,12 @@ h1, h2{
 	color: white;
 	text-align: center;
 }
+#goal{
+	font-size: 40px;
+	margin-bottom: 2%;
+}
+
+#gameStatus, #goal, #topLine {
+	color: white;
+	text-align: center;
+ }
