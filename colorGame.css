@@ -1,5 +1,6 @@
 body{
 	background-color: #232323;
+	margin: 0;
 }
 
 .square{
@@ -9,6 +10,7 @@ body{
 	margin: 1.66%;
 	float: left;
 	border-radius: 10%;
+	transition: background 0.4s;
 }
 
 #container{
@@ -19,13 +21,50 @@ body{
 h1, h2{
 	color: white;
 	text-align: center;
-}
-#goal{
-	font-size: 40px;
-	margin-bottom: 2%;
+	text-transform: uppercase;
 }
 
-#gameStatus, #goal, #topLine {
+
+#goal{
 	color: white;
 	text-align: center;
+	text-transform: uppercase;
+	font-size: 40px;
+	margin-bottom: 2%;
+
+ }
+
+ #topLine{
+	height: 30px;
+ 	background: white;
+ 	text-align: center;
+
+ }
+
+ .selected{
+ 	background: #232323;
+ 	color: white;
+ 
+ }
+
+ button{
+ 	border: none;
+ 	font-weight: 800;
+ 	background: none;
+ 	font-size: large;
+ 	text-transform: uppercase;
+ 	height: 100%;
+ 	color:#232323;
+ }
+
+ #gameStatus{
+ 	display: inline-block;
+ 	width: 20%;
+ 	font-weight: 800;
+ 	font-size: large;
+ 	font-family: "arial";
+ }
+ button:hover{
+ 	color: white;
+ 	background: #232323;
  }

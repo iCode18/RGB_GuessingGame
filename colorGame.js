@@ -1,10 +1,16 @@
-var colors = genereateColors(6);
+var gameMode = 6;
+var colors = genereateColors(gameMode);
 
 var squares = document.querySelectorAll(".square");
 var goalColor = pickedColor();
 var colorDisplay = document.querySelector("#goal");
 var gameStatus = document.querySelector("#gameStatus");
 var banner = document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
+var easy = document.querySelector("#easy");
+var hard = document.querySelector("#hard");
+
+
 
 for (var i = squares.length - 1; i >= 0; i--) {
 	// add initial colors to squares
@@ -17,6 +23,7 @@ for (var i = squares.length - 1; i >= 0; i--) {
 			gameStatus.textContent = "Correct!";
 			changeColor(clickedColor);
 			banner.style.background = clickedColor;
+			resetButton.textContent = "Playe Again?";
 		}else{
 			gameStatus.textContent = "Try Again!";
 			this.style.background = ("#232323");
@@ -53,3 +60,46 @@ function mathColors(){
 	var Blue = Math.floor(Math.random()*256);
 	return "rgb("+Red+", "+Green+", "+Blue+")";
 }
+
+resetButton.addEventListener("click", function(){
+	this.textContent = "New Game";
+	gameStatus.textContent = "";
+	banner.style.background = "#232323";
+	colors = genereateColors(gameMode);
+	goalColor = pickedColor();
+	colorDisplay.textContent = goalColor;
+	for (var i = squares.length - 1; i >= 0; i--) {
+		squares[i].style.backgroundColor = colors[i];
+	}
+});
+
+easy.addEventListener("click", function(){
+	this.classList.add("selected");
+	hard.classList.remove("selected");
+	gameMode = 3;
+	colors = genereateColors(gameMode);
+	goalColor = pickedColor();
+	colorDisplay.textContent = goalColor;
+	for (var i = squares.length - 1; i >= 0; i--) {
+		if (colors[i]) {
+		squares[i].style.backgroundColor = colors[i];
+	}else{
+		squares[i].style.display = "none";
+	}
+	}
+});
+
+hard.addEventListener("click", function(){
+	this.classList.add("selected");
+	easy.classList.remove("selected");
+	gameMode = 6;
+	colors = genereateColors(3);
+	goalColor = pickedColor();
+	colorDisplay.textContent = goalColor;
+	for (var i = squares.length - 1; i >= 0; i--) {
+		squares[i].style.backgroundColor = colors[i];
+		squares[i].style.display = "block";
+	}
+});
+
+
